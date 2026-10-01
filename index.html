@@ -13,28 +13,27 @@
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 a{text-decoration:none;color:inherit}.wrap{width:min(1180px,91vw);margin:auto}
 
-/* BANNER PRINCIPAL: Usa tu foto local de los participantes */
-.hero{min-height:620px;padding:38px 0 55px;position:relative;overflow:hidden;background:
-linear-gradient(90deg,rgba(40,29,22,.82),rgba(40,29,22,.40)),url("participantes.avif") center/cover}
+.hero{min-height:550px;padding:38px 0 55px;position:relative;overflow:hidden;background:#29231f}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;z-index:1}
+.hero-content{position:relative;z-index:2}
 
 .nav{display:flex;align-items:center;justify-content:space-between;color:white}.brand{font:700 27px Georgia,serif}.brand span{color:#f1c992}
 .navlinks{display:flex;gap:22px;font-size:13px;font-weight:700}.navlinks a:hover{color:#f1c992}
-.hero-copy{padding:145px 0 0;color:white;max-width:760px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#f3c995}
+.hero-copy{padding:100px 0 0;color:white;max-width:760px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#f3c995}
 h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{font-size:18px;line-height:1.6;color:#f4e9df;max-width:650px}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{padding:12px 17px;border-radius:999px;background:#fff;color:var(--ink);font-weight:800;font-size:13px}.btn.alt{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
-.ticker{background:var(--dark);color:#fff;padding:12px 0;font-size:12px}.ticker b{color:#efb884;margin-right:9px}
+.ticker{background:var(--dark);color:#fff;padding:12px 0;font-size:12px;position:relative;z-index:2}.ticker b{color:#efb884;margin-right:9px}
 .section{padding:55px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.section h2{font:700 38px Georgia,serif;margin:0}.section-head p{color:var(--muted);max-width:600px;margin:0;line-height:1.5}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-.cardimg{height:190px;background-size:cover;background-position:center}.cardbody{padding:22px}.date{color:var(--terr);font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.card h3{font:700 25px Georgia,serif;margin:9px 0}.card p{color:var(--muted);line-height:1.55;font-size:14px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#eee3d8;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.chip.green{background:#e1e8dc}.chip.red{background:#f2d9d0}.chip.gold{background:#f0e2c5}
+.cardimg-container{height:190px;width:100%;overflow:hidden}.cardimg-container img{width:100%;height:100%;object-fit:cover}
+.cardbody{padding:22px}.date{color:var(--terr);font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.card h3{font:700 25px Georgia,serif;margin:9px 0}.card p{color:var(--muted);line-height:1.55;font-size:14px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#eee3d8;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.chip.green{background:#e1e8dc}.chip.red{background:#f2d9d0}.chip.gold{background:#f0e2c5}
 
-/* SECCIÓN DESTACADA: Usa tu foto local del jurado */
 .feature{display:grid;grid-template-columns:1.15fr .85fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
-.featureimg{min-height:390px;background:url("jurado.avif") center/cover}
+.featureimg-container{min-height:390px;width:100%}.featureimg-container img{width:100%;height:100%;object-fit:cover}
 .featurebody{padding:34px}.featurebody h2{font:700 42px Georgia,serif;margin:8px 0 15px}.featurebody p{color:var(--muted);line-height:1.65}.quote{border-left:4px solid var(--terr);background:#f6e9df;padding:15px 17px;border-radius:999px;font-family:Georgia,serif;font-size:17px;margin:20px 0}
 
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.darkcard{background:var(--dark);color:white;border-radius:25px;padding:28px}.darkcard h3{font:700 29px Georgia,serif;margin-top:0}.darkcard p{color:#d9cdc2;line-height:1.6}.news{display:grid;grid-template-columns:1fr 1fr;gap:13px}.news a{background:var(--paper);padding:17px;border:1px solid var(--line);border-radius:16px}.news small{color:var(--terr);font-weight:800}.news b{display:block;font:700 18px Georgia,serif;margin-top:7px}
 .people{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.person{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:15px}.person b{font-family:Georgia,serif}.person small{display:block;color:var(--muted);margin-top:5px}
-.timeline{position:relative;border-left:2px solid var(--peach);padding-left:25px}.event{margin:0 0 25px;position:relative}.event:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--terr);left:-32px;top:6px}.event h3{margin:0;font:700 22px Georgia,serif}.event p{color:var(--muted);line-height:1.5}
 
 .tabs-container{margin:30px 0;border-bottom:2px solid var(--line);display:flex;gap:10px;flex-wrap:wrap}
 .tab-btn{background:none;border:none;padding:12px 20px;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .3s}
@@ -43,14 +42,16 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
 .tab-content.active{display:block}
 
 .footer{padding:50px 0 75px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media(max-width:850px){.grid,.people{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.featureimg{min-height:280px}.two{grid-template-columns:1fr}}
-@media(max-width:580px){.grid,.people,.news{grid-template-columns:1fr}.navlinks{display:none}.hero{min-height:650px}.hero-copy{padding-top:125px}}
+@media(max-width:850px){.grid,.people{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.featureimg-container{min-height:280px}.two{grid-template-columns:1fr}}
+@media(max-width:580px){.grid,.people,.news{grid-template-columns:1fr}.navlinks{display:none}.hero{min-height:550px}.hero-copy{padding-top:80px}}
 </style>
 </head>
 <body>
 
 <header class="hero">
- <div class="wrap">
+ <!-- FOTO DE PORTADA EN JPG -->
+ <img src="participantes.jpg" alt="Participantes MasterChef Celebrity" class="hero-bg">
+ <div class="wrap hero-content">
   <nav class="nav">
    <div class="brand">MC <span>DIARIO</span></div>
    <div class="navlinks">
@@ -77,11 +78,11 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
  <div class="section-head"><div><h2>📺 El diario de cada noche</h2><p>La idea es que cada emisión tenga su propia ficha: desafío, participantes, platos, devoluciones y resultado.</p></div></div>
  <div class="grid">
   <article class="card">
-   <div class="cardimg" style="background-image:url('participantes.avif')"></div>
+   <div class="cardimg-container"><img src="participantes.jpg" alt="Capítulo 1"></div>
    <div class="cardbody"><div class="date">Lun · 28 Sep 2026</div><h3>Primeras duplas y cocina con temática astronómica</h3><p>12 celebridades cocinaron en parejas. Nazareno + Luciana y La Negra + China subieron al balcón; Edith + Paula también pasaron. El resto recibió delantal gris.</p><div class="chips"><span class="chip gold">6 duplas</span><span class="chip green">3 al balcón</span><span class="chip red">3 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/el-jurado-de-masterchef-celebrity-fue-estricto-con-el-balcon-y-los-primeros-delantales-grises-pid2567858" target="_blank">Ver resumen ↗</a></div></div>
   </article>
   <article class="card">
-   <div class="cardimg" style="background-image:url('jurado.avif')"></div>
+   <div class="cardimg-container"><img src="jurado.jpg" alt="Capítulo 2"></div>
    <div class="cardbody"><div class="date">Mar · 29 Sep 2026</div><h3>Romper el hielo: mariscos y nervios</h3><p>El segundo grupo tuvo que romper bloques de hielo para descubrir los ingredientes. Hubo langostinos, sardinas, chipirones y más.</p><div class="chips"><span class="chip gold">12 participantes</span><span class="chip green">6 al balcón</span><span class="chip red">6 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/habia-tres-platos-impresentables-el-balcon-y-los-delantales-grises-del-segundo-capitulo-de-masterchef-celebrity-pid2568017" target="_blank">Ver resumen ↗</a></div></div>
   </article>
   <article class="card" style="display:flex;align-items:center;justify-content:center;min-height:450px;background:linear-gradient(145deg,#e8ddd1,#f7eee5)">
@@ -188,7 +189,8 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
 <section class="section" id="recetas">
  <div class="section-head"><div><h2>🍴 Lo que salió de las cocinas</h2><p>Una mini carta de la temporada para poder recordar qué cocinó cada famoso.</p></div></div>
  <div class="feature">
-  <div class="featureimg"></div>
+  <!-- FOTO DEL JURADO EN SECCIÓN DESTACADA -->
+  <div class="featureimg-container"><img src="jurado.jpg" alt="Jurado MasterChef"></div>
   <div class="featurebody">
    <div class="date">Capítulo 2 · 29 de septiembre</div>
    <h2>Langostinos, sardinas y chipirones</h2>
