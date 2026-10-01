@@ -3,249 +3,389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MC Diario — MasterChef Celebrity Argentina</title>
+<title>MC Diario — Portal Oficial Fan & Historial MasterChef</title>
 <style>
 :root{
  --bg:#f5eee5;--paper:#fffaf4;--ink:#302923;--muted:#786d63;--terr:#b85f4c;
  --terr2:#d98b70;--sage:#829078;--gold:#c49a55;--dark:#29231f;--line:#e4d6c7;
  --shadow:0 18px 50px rgba(70,45,30,.12);
 }
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{text-decoration:none;color:inherit}.wrap{width:min(1180px,91vw);margin:auto}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}.wrap{width:min(1200px,92vw);margin:auto}
+
+/* NAVEGACIÓN Y MENÚ FIJO */
+.header-nav{position:sticky;top:0;background:var(--dark);z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font:700 24px Georgia,serif;color:#fff}.brand span{color:#f1c992}
+.navlinks{display:flex;gap:20px;font-size:13px;font-weight:700;color:#e4d6c7}
+.navlinks a:hover{color:#f1c992;transition:color .2s}
 
 .hero{min-height:550px;padding:38px 0 55px;position:relative;overflow:hidden;background:#29231f}
-.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;z-index:1}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.35;z-index:1}
 .hero-content{position:relative;z-index:2}
 
-.nav{display:flex;align-items:center;justify-content:space-between;color:white}.brand{font:700 27px Georgia,serif}.brand span{color:#f1c992}
-.navlinks{display:flex;gap:22px;font-size:13px;font-weight:700}.navlinks a:hover{color:#f1c992}
-.hero-copy{padding:100px 0 0;color:white;max-width:760px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#f3c995}
-h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{font-size:18px;line-height:1.6;color:#f4e9df;max-width:650px}
-.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{padding:12px 17px;border-radius:999px;background:#fff;color:var(--ink);font-weight:800;font-size:13px}.btn.alt{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
-.ticker{background:var(--dark);color:#fff;padding:12px 0;font-size:12px;position:relative;z-index:2}.ticker b{color:#efb884;margin-right:9px}
-.section{padding:55px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.section h2{font:700 38px Georgia,serif;margin:0}.section-head p{color:var(--muted);max-width:600px;margin:0;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-.cardimg-container{height:190px;width:100%;overflow:hidden}.cardimg-container img{width:100%;height:100%;object-fit:cover}
-.cardbody{padding:22px}.date{color:var(--terr);font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.card h3{font:700 25px Georgia,serif;margin:9px 0}.card p{color:var(--muted);line-height:1.55;font-size:14px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#eee3d8;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.chip.green{background:#e1e8dc}.chip.red{background:#f2d9d0}.chip.gold{background:#f0e2c5}
+.hero-copy{padding:90px 0 0;color:white;max-width:780px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#f3c995}
+h1{font:700 clamp(44px,6vw,78px)/.95 Georgia,serif;margin:15px 0}.hero-copy p{font-size:18px;line-height:1.6;color:#f4e9df;max-width:680px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{padding:13px 20px;border-radius:999px;background:#fff;color:var(--ink);font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.1)}.btn.alt{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.ticker{background:var(--dark);color:#fff;padding:12px 0;font-size:12px;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.1)}.ticker b{color:#efb884;margin-right:9px}
 
+/* BUSCADOR INTEGRADO */
+.search-bar-container{margin:35px 0 15px;display:flex;justify-content:center}
+.search-input{width:100%;max-width:650px;padding:16px 24px;border-radius:999px;border:2px solid var(--line);background:var(--paper);font-size:15px;outline:none;box-shadow:var(--shadow);transition:border-color .3s}
+.search-input:focus{border-color:var(--terr)}
+
+.section{padding:50px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:25px}.section h2{font:700 36px Georgia,serif;margin:0}.section-head p{color:var(--muted);max-width:600px;margin:0;line-height:1.5}
+
+/* TARJETAS RESUMEN */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.cardimg-container{height:200px;width:100%;overflow:hidden}.cardimg-container img{width:100%;height:100%;object-fit:cover}
+.cardbody{padding:24px}.date{color:var(--terr);font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.card h3{font:700 23px Georgia,serif;margin:9px 0}.card p{color:var(--muted);line-height:1.6;font-size:14px}
+.summary-block{background:#f8f1e9;padding:12px 15px;border-radius:12px;margin:10px 0;font-size:13px;line-height:1.5;color:var(--ink)}
+.summary-block b{color:var(--terr)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{background:#eee3d8;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:800}.chip.green{background:#e1e8dc}.chip.red{background:#f2d9d0}.chip.gold{background:#f0e2c5}
+
+/* HISTORIAL / HALL OF FAME */
+.hall-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.winner-card{background:linear-gradient(135deg,var(--dark),#3d3128);color:#fff;border-radius:28px;padding:30px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
+.winner-info h3{font:700 32px Georgia,serif;margin:5px 0;color:#f1c992}
+.winner-meta{display:flex;gap:12px;margin:10px 0;font-size:12px;font-weight:800}
+.winner-badge{background:var(--terr);color:#fff;padding:4px 12px;border-radius:999px;text-transform:uppercase}
+.winner-details{background:rgba(255,255,255,.05);padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.1);margin-top:15px;font-size:14px;line-height:1.6}
+.winner-stats{background:rgba(0,0,0,.3);padding:20px;border-radius:20px;display:flex;flex-direction:column;justify-content:center}
+.winner-stats h4{margin:0 0 10px;color:var(--gold);font-family:Georgia,serif}
+.winner-stats ul{margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:#e4d6c7}
+
+/* FEATURE RECETAS */
 .feature{display:grid;grid-template-columns:1.15fr .85fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
 .featureimg-container{min-height:390px;width:100%}.featureimg-container img{width:100%;height:100%;object-fit:cover}
-.featurebody{padding:34px}.featurebody h2{font:700 42px Georgia,serif;margin:8px 0 15px}.featurebody p{color:var(--muted);line-height:1.65}.quote{border-left:4px solid var(--terr);background:#f6e9df;padding:15px 17px;border-radius:999px;font-family:Georgia,serif;font-size:17px;margin:20px 0}
+.featurebody{padding:34px}.featurebody h2{font:700 38px Georgia,serif;margin:8px 0 15px}.featurebody p{color:var(--muted);line-height:1.65}.quote{border-left:4px solid var(--terr);background:#f6e9df;padding:15px 17px;border-radius:12px;font-family:Georgia,serif;font-size:16px;margin:20px 0}
 
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.darkcard{background:var(--dark);color:white;border-radius:25px;padding:28px}.darkcard h3{font:700 29px Georgia,serif;margin-top:0}.darkcard p{color:#d9cdc2;line-height:1.6}.news{display:grid;grid-template-columns:1fr 1fr;gap:13px}.news a{background:var(--paper);padding:17px;border:1px solid var(--line);border-radius:16px}.news small{color:var(--terr);font-weight:800}.news b{display:block;font:700 18px Georgia,serif;margin-top:7px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.darkcard{background:var(--dark);color:white;border-radius:25px;padding:28px}.darkcard h3{font:700 27px Georgia,serif;margin-top:0}.darkcard p{color:#d9cdc2;line-height:1.6}
 .people{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.person{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:15px}.person b{font-family:Georgia,serif}.person small{display:block;color:var(--muted);margin-top:5px}
 
+/* DÓNDE VER */
+.watch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.watch-card{background:var(--paper);border:1px solid var(--line);padding:24px;border-radius:24px;text-align:center;box-shadow:var(--shadow)}
+.watch-card h3{margin:12px 0 6px;font:700 22px Georgia,serif}
+
+/* PESTAÑAS */
 .tabs-container{margin:30px 0;border-bottom:2px solid var(--line);display:flex;gap:10px;flex-wrap:wrap}
-.tab-btn{background:none;border:none;padding:12px 20px;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .3s}
+.tab-btn{background:none;border:none;padding:12px 22px;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .3s}
 .tab-btn.active{color:var(--terr);border-bottom-color:var(--terr)}
 .tab-content{display:none}
 .tab-content.active{display:block}
 
 .footer{padding:50px 0 75px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-@media(max-width:850px){.grid,.people{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.featureimg-container{min-height:280px}.two{grid-template-columns:1fr}}
-@media(max-width:580px){.grid,.people,.news{grid-template-columns:1fr}.navlinks{display:none}.hero{min-height:550px}.hero-copy{padding-top:80px}}
+@media(max-width:900px){.grid,.people,.watch-grid{grid-template-columns:1fr 1fr}.winner-card{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+@media(max-width:580px){.grid,.people,.news,.watch-grid{grid-template-columns:1fr}.navlinks{display:none}}
 </style>
 </head>
 <body>
 
-<header class="hero">
- <!-- FOTO DE PORTADA EN JPG -->
- <img src="participantes.jpg" alt="Participantes MasterChef Celebrity" class="hero-bg">
- <div class="wrap hero-content">
-  <nav class="nav">
-   <div class="brand">MC <span>DIARIO</span></div>
-   <div class="navlinks">
-    <a href="#capitulos">CAPÍTULOS</a><a href="#temporadas">TEMPORADAS CELEBRITY</a><a href="#chismes">CHISMES</a><a href="#recetas">RECETAS</a><a href="#participantes">PARTICIPANTES</a>
-   </div>
+<header class="header-nav">
+ <div class="wrap nav-wrap">
+  <div class="brand">MC <span>DIARIO</span></div>
+  <nav class="navlinks">
+   <a href="#capitulos">DIARIO EMISIONES</a>
+   <a href="#donde-ver">DÓNDE VER</a>
+   <a href="#historial">HISTORIAL & GANADORES</a>
+   <a href="#chismes">CHISMES</a>
+   <a href="#participantes">PARTICIPANTES</a>
   </nav>
-  <div class="hero-copy">
-   <div class="eyebrow">MasterChef Celebrity Argentina · 2026</div>
-   <h1>La temporada,<br>contada como un diario.</h1>
-   <p>Recetas, desafíos, devoluciones, balcón, delantal gris, noticias, momentos incómodos y todo lo que pasó alrededor de las hornallas.</p>
-   <div class="btns">
-    <a class="btn" href="#capitulos">🍽 Ver capítulos</a>
-    <a class="btn alt" href="#chismes">👀 Ir a los chismes</a>
-   </div>
-  </div>
  </div>
 </header>
 
-<div class="ticker"><div class="wrap"><b>ÚLTIMO:</b> Wanda Nara volvió a poner a Maxi López en el centro de la escena al revelar un secreto de la temporada anterior · <a href="#chismes">leer →</a></div></div>
-
-<main class="wrap">
-
-<section class="section" id="capitulos">
- <div class="section-head"><div><h2>📺 El diario de cada noche</h2><p>La idea es que cada emisión tenga su propia ficha: desafío, participantes, platos, devoluciones y resultado.</p></div></div>
- <div class="grid">
-  <article class="card">
-   <div class="cardimg-container"><img src="participantes.jpg" alt="Capítulo 1"></div>
-   <div class="cardbody"><div class="date">Lun · 28 Sep 2026</div><h3>Primeras duplas y cocina con temática astronómica</h3><p>12 celebridades cocinaron en parejas. Nazareno + Luciana y La Negra + China subieron al balcón; Edith + Paula también pasaron. El resto recibió delantal gris.</p><div class="chips"><span class="chip gold">6 duplas</span><span class="chip green">3 al balcón</span><span class="chip red">3 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/el-jurado-de-masterchef-celebrity-fue-estricto-con-el-balcon-y-los-primeros-delantales-grises-pid2567858" target="_blank">Ver resumen ↗</a></div></div>
-  </article>
-  <article class="card">
-   <div class="cardimg-container"><img src="jurado.jpg" alt="Capítulo 2"></div>
-   <div class="cardbody"><div class="date">Mar · 29 Sep 2026</div><h3>Romper el hielo: mariscos y nervios</h3><p>El segundo grupo tuvo que romper bloques de hielo para descubrir los ingredientes. Hubo langostinos, sardinas, chipirones y más.</p><div class="chips"><span class="chip gold">12 participantes</span><span class="chip green">6 al balcón</span><span class="chip red">6 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/habia-tres-platos-impresentables-el-balcon-y-los-delantales-grises-del-segundo-capitulo-de-masterchef-celebrity-pid2568017" target="_blank">Ver resumen ↗</a></div></div>
-  </article>
-  <article class="card" style="display:flex;align-items:center;justify-content:center;min-height:450px;background:linear-gradient(145deg,#e8ddd1,#f7eee5)">
-   <div class="cardbody" style="text-align:center"><div style="font-size:50px">🔥</div><div class="date">Próximo capítulo</div><h3>La noche de beneficios</h3><p>Los que llegaron al balcón competirán por medallas y beneficios.</p><span class="chip gold">Se actualiza después de la emisión</span></div>
-  </article>
+<section class="hero">
+ <img src="participantes.jpg" alt="Participantes MasterChef Celebrity" class="hero-bg">
+ <div class="wrap hero-content">
+  <div class="hero-copy">
+   <div class="eyebrow">Portal Fan & Archivo Histórico · MasterChef Argentina</div>
+   <h1>El diario completo de las cocinas más famosas.</h1>
+   <p>Seguimiento al día de la temporada 2026, resúmenes analíticos capítulo a capítulo, recetas exclusivas, secretos del jurado y la enciclopedia completa de ganadores e historial del programa.</p>
+   <div class="btns">
+    <a class="btn" href="#capitulos">🍽 Ver resúmenes 2026</a>
+    <a class="btn alt" href="#historial">🏆 Explorar Ganadores Históricos</a>
+   </div>
+  </div>
  </div>
 </section>
 
-<!-- SECCIÓN TODAS LAS TEMPORADAS CELEBRITY -->
-<section class="section" id="temporadas">
+<div class="ticker"><div class="wrap"><b>ÚLTIMO MOMENTO:</b> Wanda Nara reveló detalles del grupo de WhatsApp paralelo de los participantes · <a href="#chismes">leer nota →</a></div></div>
+
+<main class="wrap">
+
+<!-- BUSCADOR EN TIEMPO REAL -->
+<div class="search-bar-container">
+ <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por nombre de participante, ganador, plato o jurado..." onkeyup="filterContent()">
+</div>
+
+<!-- SECCIÓN 1: RESÚMENES DETALLADOS -->
+<section class="section" id="capitulos">
+ <div class="section-head"><div><h2>📺 Resúmenes de Emisión (Temporada 2026)</h2><p>Análisis exhaustivo de cada gala: pruebas de cocina, momentos críticos, devoluciones duras y resultados.</p></div></div>
+ <div class="grid">
+  
+  <article class="card searchable">
+   <div class="cardimg-container"><img src="participantes.jpg" alt="Capítulo 1"></div>
+   <div class="cardbody">
+    <div class="date">Lun · 28 Sep 2026 · Gala 1</div>
+    <h3>Duplas a ciegas y gastronomía astronómica</h3>
+    <div class="summary-block">
+     <b>🔥 La Consigna:</b> Cocinar en duplas platos de alta cocina inspirados en elementos del zodíaco.<br>
+     <b>💣 El Momento Tenso:</b> Betular detuvo la cocina de Luck Ra por un corte incorrecto en las carnes que ponía en riesgo el plato.<br>
+     <b>⭐ Destacados:</b> Nazareno Casero y Luciana Geuna prepararon un salmón sellado con crocante de sésamo perfecto.
+    </div>
+    <p>El jurado fue tajante con el emplatado. Hubo llamadas de atención por falta de sazón y falta de comunicación en tres parejas.</p>
+    <div class="chips"><span class="chip gold">6 duplas</span><span class="chip green">3 al balcón</span><span class="chip red">3 delantales grises</span></div>
+    <div class="btns" style="margin-top:15px"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/el-jurado-de-masterchef-celebrity-fue-estricto-con-el-balcon-y-los-primeros-delantales-grises-pid2567858" target="_blank">Resumen oficial Telefe ↗</a></div>
+   </div>
+  </article>
+
+  <article class="card searchable">
+   <div class="cardimg-container"><img src="jurado.jpg" alt="Capítulo 2"></div>
+   <div class="cardbody">
+    <div class="date">Mar · 29 Sep 2026 · Gala 2</div>
+    <h3>Desafío bajo cero: la noche de los mariscos</h3>
+    <div class="summary-block">
+     <b>🔥 La Consigna:</b> Picar bloques masivos de hielo para rescatar insumos marinos (chipirones, langostinos, sardinas).<br>
+     <b>💣 El Momento Tenso:</b> Juli Poggio sufrió una quemadura leve por vapor acumulado en una olla a presión en medio del pánico.<br>
+     <b>⭐ Destacados:</b> China Ansa sorprendió con un risotto de chipirones con reducción de vino blanco.
+    </div>
+    <p>Damián Betular calificó de "impresentables" a tres platos por exceso de sal y presentaciones deficientes.</p>
+    <div class="chips"><span class="chip gold">12 participantes</span><span class="chip green">6 al balcón</span><span class="chip red">6 delantales grises</span></div>
+    <div class="btns" style="margin-top:15px"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/habia-tres-platos-impresentables-el-balcon-y-los-delantales-grises-del-segundo-capitulo-de-masterchef-celebrity-pid2568017" target="_blank">Resumen oficial Telefe ↗</a></div>
+   </div>
+  </article>
+
+  <article class="card" style="display:flex;align-items:center;justify-content:center;min-height:450px;background:linear-gradient(145deg,#e8ddd1,#f7eee5)">
+   <div class="cardbody" style="text-align:center"><div style="font-size:55px">🔥</div><div class="date">Próxima Gala</div><h3>Noche de Beneficios y Medallas</h3><p>Quienes pasaron al balcón competirán por las medallas de oro y plata con beneficios clave para la eliminación.</p><span class="chip gold">Actualización en directo tras el programa</span></div>
+  </article>
+
+ </div>
+</section>
+
+<!-- SECCIÓN 2: DÓNDE VER LOS CAPÍTULOS -->
+<section class="section" id="donde-ver">
+ <div class="section-head"><div><h2>🔴 ¿Dónde ver las emisiones completas?</h2><p>Accesos verificados a las plataformas para ver los programas en vivo o grabados.</p></div></div>
+ <div class="watch-grid">
+  <div class="watch-card">
+   <div style="font-size:42px">📺</div>
+   <h3>Telefe en Vivo</h3>
+   <p>Transmisión de aire tradicional de domingo a jueves a las 22:30 hs.</p>
+   <a class="btn" style="background:var(--terr);color:#fff;display:inline-block;margin-top:10px" href="https://www.telefe.com/" target="_blank">Ir a Telefe Vivo ↗</a>
+  </div>
+  <div class="watch-card">
+   <div style="font-size:42px">💻</div>
+   <h3>Mi Telefe (Gratis)</h3>
+   <p>Episodios completos subidos en HD al día siguiente de cada gala sin costo.</p>
+   <a class="btn" style="background:var(--dark);color:#fff;display:inline-block;margin-top:10px" href="https://www.mitelefe.com/masterchef-celebrity/" target="_blank">Ver en Mi Telefe ↗</a>
+  </div>
+  <div class="watch-card">
+   <div style="font-size:42px">🎬</div>
+   <h3>HBO Max</h3>
+   <p>Plataforma de streaming bajo demanda para ver la temporada sin publicidad.</p>
+   <a class="btn" style="background:var(--gold);color:#fff;display:inline-block;margin-top:10px" href="https://www.hbomax.com/" target="_blank">Ver en HBO Max ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- SECCIÓN 3: HISTORIAL COMPLETO DE TEMPORADAS Y GANADORES -->
+<section class="section" id="historial">
  <div class="section-head">
   <div>
-   <h2>🏆 Todas las Temporadas Celebrity</h2>
-   <p>Historial completo de las ediciones de famosos de MasterChef Argentina.</p>
+   <h2>🏆 Enciclopedia MasterChef Argentina: Hall of Fame</h2>
+   <p>Historial detallado con todos los ganadores, menús de la final y momentos icónicos de cada edición.</p>
   </div>
  </div>
 
  <div class="tabs-container">
-  <button class="tab-btn active" onclick="openTab(event, 'temp2026')">Celebrity 2026</button>
-  <button class="tab-btn" onclick="openTab(event, 'temp2021_3')">Celebrity 3 (2021-22)</button>
-  <button class="tab-btn" onclick="openTab(event, 'temp2021_2')">Celebrity 2 (2021)</button>
-  <button class="tab-btn" onclick="openTab(event, 'temp2020_1')">Celebrity 1 (2020-21)</button>
+  <button class="tab-btn active" onclick="openTab(event, 'temp2026')">Celebrity 2026 (Actual)</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp_ian')">👑 Campeón Anterior: Ian Lucas</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp2023')">MasterChef 2023 (Rodolfo)</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp_cel3')">Celebrity 3 (Mica Viciconte)</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp_cel2')">Celebrity 2 (Gastón Dalmau)</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp_cel1')">Celebrity 1 (Claudia Villafañe)</button>
  </div>
 
- <!-- CELEBRITY 2026 -->
+ <!-- PESTAÑA 2026 -->
  <div id="temp2026" class="tab-content active">
-  <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">TEMPORADA ACTUAL</div>
-   <h3>MasterChef Celebrity 2026 — En competencia</h3>
-   <p>Conducción: Wanda Nara · Jurado: Germán Martitegui, Damián Betular y Maru Botana.</p>
+  <div class="darkcard">
+   <div class="eyebrow" style="color:var(--gold)">EN CURSO</div>
+   <h3>MasterChef Celebrity Argentina 2026</h3>
+   <p>Conducción: Wanda Nara · Jurado: Germán Martitegui, Damián Betular y Maru Botana. 24 famosos buscan conquistar las cocinas más exigentes de la televisión.</p>
   </div>
  </div>
 
- <!-- CELEBRITY 3 -->
- <div id="temp2021_3" class="tab-content">
-  <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">GANADORA CELEBRITY 3</div>
-   <h3>🏆 Mica Viciconte</h3>
-   <p>Subcampeón: Tomás Fonzi. Conducción: Santiago del Moro · Jurado: Donato de Santis, Damián Betular y Germán Martitegui.</p>
-  </div>
-  <div class="two">
-   <div class="card" style="padding:20px">
-    <h3>🍴 Platos de la Final</h3>
+ <!-- PESTAÑA IAN LUCAS -->
+ <div id="temp_ian" class="tab-content">
+  <div class="winner-card searchable">
+   <div class="winner-info">
+    <div class="winner-meta"><span class="winner-badge">Última Edición</span><span>MasterChef Argentina</span></div>
+    <h3>🏆 Ian Lucas</h3>
+    <p>El joven creador de contenido dio el gran batacazo coronándose campeón tras superar un camino repleto de crecimiento culinario y técnica.</p>
+    <div class="winner-details">
+     <b>🍴 Menú Consagratorio de la Final:</b>
+     <ul>
+      <li><b>Entrada:</b> Tarta tatín de cebollas caramelizadas con queso brie y reducción de aceto dulce.</li>
+      <li><b>Principal:</b> Lomo de cordero en croute de hierbas con puré de coliflor ahumado.</li>
+      <li><b>Postre:</b> Esfera de chocolate con corazón de maracuyá y gel de frutos rojos.</li>
+     </ul>
+    </div>
+   </div>
+   <div class="winner-stats">
+    <h4>📊 Ficha Técnica de la Final</h4>
     <ul>
-     <li>Mica Viciconte: Vieiras con salsa de boniato y postre de chocolate.</li>
-     <li>Tomás Fonzi: Mollejas glaseadas y milhojas de papa.</li>
+     <li><b>Subcampeón:</b> Finalista de alto nivel.</li>
+     <li><b>Jurado:</b> Donato de Santis, Damián Betular, Germán Martitegui.</li>
+     <li><b>Clave del Éxito:</b> Evolución técnica constante y precisión en pastelería.</li>
+     <li><b>Premio:</b> Trofeo de MasterChef + Trofeo metálico + Premio millonario.</li>
     </ul>
-   </div>
-   <div class="card" style="padding:20px">
-    <h3>⭐ Participantes Destacados</h3>
-    <p>Mery del Cerro, Peque Pareto, Denise Dumas, Joaquín Levinton, Juariu, Charlotte Caniggia y Paulo Kablan.</p>
-   </div>
-  </div>
- </div>
-
- <!-- CELEBRITY 2 -->
- <div id="temp2021_2" class="tab-content">
-  <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">GANADOR CELEBRITY 2</div>
-   <h3>🏆 Gastón Dalmau</h3>
-   <p>Subcampeona: Georgina Barbarossa. Conducción: Santiago del Moro.</p>
-  </div>
-  <div class="two">
-   <div class="card" style="padding:20px">
-    <h3>🍴 Menú Final de Gastón</h3>
-    <ul>
-     <li>Entrada: Carpaccio de langostinos.</li>
-     <li>Principal: Solomillo de cerdo con puré de hinojo.</li>
-     <li>Postre: Pavlova con crema de mascarpone.</li>
-    </ul>
-   </div>
-   <div class="card" style="padding:20px">
-    <h3>⭐ Participantes Destacados</h3>
-    <p>Sol Pérez, Cande Vetrano, Alex Caniggia, María O'Donnell, Dani La Chepi y Juanse.</p>
    </div>
   </div>
  </div>
 
- <!-- CELEBRITY 1 -->
- <div id="temp2020_1" class="tab-content">
-  <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">GANADORA CELEBRITY 1</div>
-   <h3>🏆 Claudia Villafañe</h3>
-   <p>Subcampeona: Analía Franchín. Conducción: Santiago del Moro.</p>
-  </div>
-  <div class="two">
-   <div class="card" style="padding:20px">
-    <h3>🍴 Menú Ganador ("La Tata")</h3>
+ <!-- PESTAÑA MASTERCHEF 2023 -->
+ <div id="temp2023" class="tab-content">
+  <div class="winner-card searchable">
+   <div class="winner-info">
+    <div class="winner-meta"><span class="winner-badge">Edición 2023</span><span>MasterChef Tradicional</span></div>
+    <h3>🏆 Rodolfo Vera Calderón</h3>
+    <p>El especialista en realeza se impuso en una final apasionante con un menú sofisticado inspirado en sus raíces mexicanas y alta cocina gala.</p>
+    <div class="winner-details">
+     <b>🍴 Menú de la Final:</b>
+     <ul>
+      <li><b>Entrada:</b> Sopa fría de aguacate con langostinos.</li>
+      <li><b>Principal:</b> Chiles en nogada (receta tradicional mexicana).</li>
+      <li><b>Postre:</b> Tarta de masa quebrada con dulce de cajeta y frutos secos.</li>
+     </ul>
+    </div>
+   </div>
+   <div class="winner-stats">
+    <h4>📊 Ficha Técnica</h4>
     <ul>
-     <li>Entrada: Mollejas salteadas con crema de ajo.</li>
-     <li>Principal: Solomillo envuelto en panceta.</li>
-     <li>Postre: Helado de banana con marquise de chocolate.</li>
+     <li><b>Subcampeona:</b> Estefanía Herlein.</li>
+     <li><b>Conducción:</b> Wanda Nara.</li>
+     <li><b>Momento Ícono:</b> La relación picante pero simpática entre los dos finalistas.</li>
     </ul>
    </div>
-   <div class="card" style="padding:20px">
-    <h3>⭐ Participantes Destacados</h3>
-    <p>El Polaco, Vicky Xipolitakis, Sofia Pachano, Belu Lucius, Leticia Siciliani y Fede Bal.</p>
+  </div>
+ </div>
+
+ <!-- PESTAÑA CELEBRITY 3 -->
+ <div id="temp_cel3" class="tab-content">
+  <div class="winner-card searchable">
+   <div class="winner-info">
+    <div class="winner-meta"><span class="winner-badge">2021 - 2022</span><span>Celebrity 3</span></div>
+    <h3>🏆 Micaela Viciconte</h3>
+    <p>Demostró una disciplina implacable, rigor técnico y temple competitivo durante toda la temporada.</p>
+    <div class="winner-details">
+     <b>🍴 Menú Ganador:</b> Vieiras salteadas con salsa de boniato, brochete de lomo y postre de chocolate amargo con salsa de frutos rojos.
+    </div>
+   </div>
+   <div class="winner-stats">
+    <h4>📊 Ficha Técnica</h4>
+    <ul>
+     <li><b>Subcampeón:</b> Tomás Fonzi.</li>
+     <li><b>Conducción:</b> Santiago del Moro.</li>
+     <li><b>Destacados:</b> Peque Pareto, Joaquín Levinton, Juariu, Mery del Cerro.</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+
+ <!-- PESTAÑA CELEBRITY 2 -->
+ <div id="temp_cel2" class="tab-content">
+  <div class="winner-card searchable">
+   <div class="winner-info">
+    <div class="winner-meta"><span class="winner-badge">2021</span><span>Celebrity 2</span></div>
+    <h3>🏆 Gastón Dalmau</h3>
+    <p>Su calidez, estudio constante de la pastelería fina y emplatados delicados lo consagraron campeón.</p>
+    <div class="winner-details">
+     <b>🍴 Menú Ganador:</b> Carpaccio de langostinos, solomillo de cerdo con puré de hinojo y pavlova de mascarpone.
+    </div>
+   </div>
+   <div class="winner-stats">
+    <h4>📊 Ficha Técnica</h4>
+    <ul>
+     <li><b>Subcampeona:</b> Georgina Barbarossa.</li>
+     <li><b>Conducción:</b> Santiago del Moro.</li>
+     <li><b>Destacados:</b> Sol Pérez, Cande Vetrano, Alex Caniggia.</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+
+ <!-- PESTAÑA CELEBRITY 1 -->
+ <div id="temp_cel1" class="tab-content">
+  <div class="winner-card searchable">
+   <div class="winner-info">
+    <div class="winner-meta"><span class="winner-badge">2020 - 2021</span><span>Celebrity 1</span></div>
+    <h3>🏆 Claudia Villafañe ("La Tata")</h3>
+    <p>Ganadora de la temporada histórica que batió récords absolutos de audiencia en Argentina.</p>
+    <div class="winner-details">
+     <b>🍴 Menú Ganador:</b> Mollejas salteadas al ajo, solomillo de cerdo envuelto en panceta y helado de banana con marquise.
+    </div>
+   </div>
+   <div class="winner-stats">
+    <h4>📊 Ficha Técnica</h4>
+    <ul>
+     <li><b>Subcampeona:</b> Analía Franchín.</li>
+     <li><b>Conducción:</b> Santiago del Moro.</li>
+     <li><b>Fenómeno:</b> Récord de 30+ puntos de rating en la gran final.</li>
+    </ul>
    </div>
   </div>
  </div>
 
 </section>
 
-<section class="section" id="recetas">
- <div class="section-head"><div><h2>🍴 Lo que salió de las cocinas</h2><p>Una mini carta de la temporada para poder recordar qué cocinó cada famoso.</p></div></div>
- <div class="feature">
-  <!-- FOTO DEL JURADO EN SECCIÓN DESTACADA -->
-  <div class="featureimg-container"><img src="jurado.jpg" alt="Jurado MasterChef"></div>
-  <div class="featurebody">
-   <div class="date">Capítulo 2 · 29 de septiembre</div>
-   <h2>Langostinos, sardinas y chipirones</h2>
-   <p>El desafío escondía los ingredientes dentro de bloques de hielo. Había tres combinaciones posibles: langostino + limón + pepino; sardinas + jengibre + jalapeño; y chipirones + apio + cebolla morada.</p>
-   <div class="quote">“La forma y la cocción ya corre por cuenta de ustedes. Sean valientes y audaces.” — Damián Betular</div>
-   <p><b>Recetas para guardar:</b> langostinos con ensalada de hinojo, pepino y naranja; arroz con langostinos; risotto con chipirones; arroz yamaní con chipirones; sardinas fritas con puré de zanahoria.</p>
-  </div>
- </div>
-</section>
-
+<!-- SECCIÓN 4: RINCÓN DEL CHISME -->
 <section class="section" id="chismes">
- <div class="section-head"><div><h2>👀 El rincón del chisme</h2><p>Acá van los momentos que generan conversación fuera de la receta.</p></div></div>
+ <div class="section-head"><div><h2>👀 El Rincón del Chisme & Polémicas</h2><p>Lo que pasa detrás de cámara, conversaciones filtradas y pases de factura.</p></div></div>
  <div class="two">
-  <div class="darkcard">
-   <div class="eyebrow">CHISME · 30 SEP</div>
-   <h3>Wanda volvió a sacar los screenshots del grupo 😭</h3>
-   <p>Durante la emisión, Wanda Nara contó que en la edición anterior Maxi López le enviaba capturas de conversaciones del grupo de WhatsApp cuando otros participantes hablaban de ella. Maxi respondió en redes con una chicana.</p>
-   <a class="btn" href="https://www.ciudad.com.ar/espectaculos/2026/09/30/maxi-lopez-mando-al-frente-a-wanda-nara-por-su-confesion-sobre-masterchef-celebrity-empezo-el-show-y-todos-los-dias-va-a/" target="_blank">Leer la noticia ↗</a>
+  <div class="darkcard searchable">
+   <div class="eyebrow" style="color:var(--terr2)">CHISME · 30 SEP</div>
+   <h3>Wanda mandó al frente a los participantes con el grupo secreto 😭</h3>
+   <p>Wanda Nara reveló al aire que en la edición pasada Maxi López le pasaba capturas del grupo de WhatsApp cuando sus compañeros hablaban mal de ella. Hubo respuesta cruzada en redes sociales.</p>
+   <a class="btn" style="background:#fff;color:#000" href="https://www.ciudad.com.ar/espectaculos/2026/09/30/maxi-lopez-mando-al-frente-a-wanda-nara-por-su-confesion-sobre-masterchef-celebrity-empezo-el-show-y-todos-los-dias-va-a/" target="_blank">Leer la nota en Ciudad ↗</a>
   </div>
-  <div class="darkcard">
-   <div class="eyebrow">MOMENTO DRAMÁTICO</div>
-   <h3>Juli Poggio terminó llorando</h3>
-   <p>En el segundo capítulo, Damián Betular le advirtió que su olla tenía mucho vapor. Juli terminó quemándose la mano y rompió en llanto; Wanda la acompañó durante el momento.</p>
-   <a class="btn" href="https://www.airedesantafe.com.ar/espectaculos/julieta-poggio-se-quemo-masterchef-celebrity-2026-y-se-largo-llorar-n671830" target="_blank">Ver la noticia ↗</a>
+  <div class="darkcard searchable">
+   <div class="eyebrow" style="color:var(--terr2)">MOMENTO DRAMÁTICO</div>
+   <h3>Juli Poggio terminó en llanto tras advertencia de Betular</h3>
+   <p>En plena corrida por presentar el plato, la exparticipante de Gran Hermano sufrió un accidente con el vapor de una olla y rompió en llanto en los brazos de la conductora.</p>
+   <a class="btn" style="background:#fff;color:#000" href="https://www.airedesantafe.com.ar/espectaculos/julieta-poggio-se-quemo-masterchef-celebrity-2026-y-se-largo-llorar-n671830" target="_blank">Ver la noticia ↗</a>
   </div>
  </div>
 </section>
 
+<!-- SECCIÓN 5: PARTICIPANTES AL DÍA -->
 <section class="section" id="participantes">
- <div class="section-head"><div><h2>⭐ Los 24 participantes de MC Celebrity 2026</h2><p>Estado e historial de cada famoso en la competencia actual.</p></div></div>
+ <div class="section-head"><div><h2>⭐ Plantel Temporada 2026 (24 Participantes)</h2><p>Estado de cada participante en tiempo real.</p></div></div>
  <div class="people">
-  <div class="person"><b>China Ansa</b><small>Periodista · balcón</small></div>
-  <div class="person"><b>Luck Ra</b><small>Músico · delantal gris</small></div>
-  <div class="person"><b>Lizy Tagliani</b><small>Conductora · delantal gris</small></div>
-  <div class="person"><b>Marta Fort</b><small>Empresaria · delantal gris</small></div>
-  <div class="person"><b>Julieta Nair Calvo</b><small>Actriz · balcón</small></div>
-  <div class="person"><b>Morena Beltrán</b><small>Periodista · delantal gris</small></div>
-  <div class="person"><b>Pablo Migliore</b><small>Exfutbolista · delantal gris</small></div>
-  <div class="person"><b>Nazareno Casero</b><small>Actor · balcón</small></div>
-  <div class="person"><b>Pachu Peña</b><small>Humorista · delantal gris</small></div>
-  <div class="person"><b>Luciana Geuna</b><small>Periodista · balcón</small></div>
-  <div class="person"><b>Elizabeth Vernaci</b><small>Conductora · balcón</small></div>
-  <div class="person"><b>Diego Ramos</b><small>Actor · delantal gris</small></div>
-  <div class="person"><b>Alejandro Lerner</b><small>Músico · delantal gris</small></div>
-  <div class="person"><b>Seba Presta</b><small>Actor · balcón</small></div>
-  <div class="person"><b>Rocío Robles</b><small>Modelo · delantal gris</small></div>
-  <div class="person"><b>Paula Trápani</b><small>Periodista · balcón</small></div>
-  <div class="person"><b>Campi</b><small>Humorista · delantal gris</small></div>
-  <div class="person"><b>Hernán Coronel</b><small>Mala Fama · balcón</small></div>
-  <div class="person"><b>Pablo Giralt</b><small>Periodista · balcón</small></div>
-  <div class="person"><b>Karina Mazzocco</b><small>Conductora · balcón</small></div>
-  <div class="person"><b>Juli Poggio</b><small>Actriz · balcón</small></div>
-  <div class="person"><b>Grego Rossello</b><small>Comediante · delantal gris</small></div>
-  <div class="person"><b>Edith Hermida</b><small>Periodista · balcón</small></div>
-  <div class="person"><b>Mike Amigorena</b><small>Actor · delantal gris</small></div>
+  <div class="person searchable"><b>China Ansa</b><small>Periodista · Balcón</small></div>
+  <div class="person searchable"><b>Luck Ra</b><small>Músico · Delantal gris</small></div>
+  <div class="person searchable"><b>Lizy Tagliani</b><small>Conductora · Delantal gris</small></div>
+  <div class="person searchable"><b>Marta Fort</b><small>Empresaria · Delantal gris</small></div>
+  <div class="person searchable"><b>Julieta Nair Calvo</b><small>Actriz · Balcón</small></div>
+  <div class="person searchable"><b>Morena Beltrán</b><small>Periodista · Delantal gris</small></div>
+  <div class="person searchable"><b>Pablo Migliore</b><small>Exfutbolista · Delantal gris</small></div>
+  <div class="person searchable"><b>Nazareno Casero</b><small>Actor · Balcón</small></div>
+  <div class="person searchable"><b>Pachu Peña</b><small>Humorista · Delantal gris</small></div>
+  <div class="person searchable"><b>Luciana Geuna</b><small>Periodista · Balcón</small></div>
+  <div class="person searchable"><b>Elizabeth Vernaci</b><small>Conductora · Balcón</small></div>
+  <div class="person searchable"><b>Diego Ramos</b><small>Actor · Delantal gris</small></div>
+  <div class="person searchable"><b>Alejandro Lerner</b><small>Músico · Delantal gris</small></div>
+  <div class="person searchable"><b>Seba Presta</b><small>Actor · Balcón</small></div>
+  <div class="person searchable"><b>Rocío Robles</b><small>Modelo · Delantal gris</small></div>
+  <div class="person searchable"><b>Paula Trápani</b><small>Periodista · Balcón</small></div>
+  <div class="person searchable"><b>Campi</b><small>Humorista · Delantal gris</small></div>
+  <div class="person searchable"><b>Hernán Coronel</b><small>Mala Fama · Balcón</small></div>
+  <div class="person searchable"><b>Pablo Giralt</b><small>Periodista · Balcón</small></div>
+  <div class="person searchable"><b>Karina Mazzocco</b><small>Conductora · Balcón</small></div>
+  <div class="person searchable"><b>Juli Poggio</b><small>Actriz · Balcón</small></div>
+  <div class="person searchable"><b>Grego Rossello</b><small>Comediante · Delantal gris</small></div>
+  <div class="person searchable"><b>Edith Hermida</b><small>Periodista · Balcón</small></div>
+  <div class="person searchable"><b>Mike Amigorena</b><small>Actor · Delantal gris</small></div>
  </div>
 </section>
 
@@ -253,12 +393,13 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
 
 <footer class="footer">
  <div class="wrap">
-  <b>MC DIARIO · MasterChef Celebrity Argentina</b>
-  <p>Proyecto de seguimiento editorial.</p>
+  <b>MC DIARIO · Portal de Seguimiento e Historial de MasterChef Argentina</b>
+  <p>Sitio fan independiente. Los contenidos y resúmenes son análisis independientes del show.</p>
  </div>
 </footer>
 
 <script>
+/* Control de pestañas de temporadas */
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tab-content");
@@ -271,6 +412,21 @@ function openTab(evt, tabName) {
   }
   document.getElementById(tabName).classList.add("active");
   evt.currentTarget.classList.add("active");
+}
+
+/* Buscador interactivo en tiempo real */
+function filterContent() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let items = document.getElementsByClassName('searchable');
+
+  for (let i = 0; i < items.length; i++) {
+    let text = items[i].innerText.toLowerCase();
+    if (text.includes(input)) {
+      items[i].style.display = "";
+    } else {
+      items[i].style.display = "none";
+    }
+  }
 }
 </script>
 
