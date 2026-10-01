@@ -13,9 +13,9 @@
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 a{text-decoration:none;color:inherit}.wrap{width:min(1180px,91vw);margin:auto}
 
-/* BANNER PRINCIPAL: Imagen con el logo y estética de MasterChef */
+/* BANNER PRINCIPAL: Usa tu foto local de los participantes */
 .hero{min-height:620px;padding:38px 0 55px;position:relative;overflow:hidden;background:
-linear-gradient(90deg,rgba(40,29,22,.82),rgba(40,29,22,.40)),url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/MasterChef_logo.svg/1200px-MasterChef_logo.svg.png") center/contain no-repeat, #29231f}
+linear-gradient(90deg,rgba(40,29,22,.82),rgba(40,29,22,.40)),url("participantes.avif") center/cover}
 
 .nav{display:flex;align-items:center;justify-content:space-between;color:white}.brand{font:700 27px Georgia,serif}.brand span{color:#f1c992}
 .navlinks{display:flex;gap:22px;font-size:13px;font-weight:700}.navlinks a:hover{color:#f1c992}
@@ -27,17 +27,17 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
 .cardimg{height:190px;background-size:cover;background-position:center}.cardbody{padding:22px}.date{color:var(--terr);font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.card h3{font:700 25px Georgia,serif;margin:9px 0}.card p{color:var(--muted);line-height:1.55;font-size:14px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#eee3d8;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.chip.green{background:#e1e8dc}.chip.red{background:#f2d9d0}.chip.gold{background:#f0e2c5}
 
-/* IMAGEN DEL DESAFÍO: Plato de mariscos preparado profesionalmente */
+/* SECCIÓN DESTACADA: Usa tu foto local del jurado */
 .feature{display:grid;grid-template-columns:1.15fr .85fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
-.featureimg{min-height:390px;background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Plato_de_mariscos.jpg/800px-Plato_de_mariscos.jpg") center/cover}
+.featureimg{min-height:390px;background:url("jurado.avif") center/cover}
 .featurebody{padding:34px}.featurebody h2{font:700 42px Georgia,serif;margin:8px 0 15px}.featurebody p{color:var(--muted);line-height:1.65}.quote{border-left:4px solid var(--terr);background:#f6e9df;padding:15px 17px;border-radius:999px;font-family:Georgia,serif;font-size:17px;margin:20px 0}
 
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.darkcard{background:var(--dark);color:white;border-radius:25px;padding:28px}.darkcard h3{font:700 29px Georgia,serif;margin-top:0}.darkcard p{color:#d9cdc2;line-height:1.6}.news{display:grid;grid-template-columns:1fr 1fr;gap:13px}.news a{background:var(--paper);padding:17px;border:1px solid var(--line);border-radius:16px}.news small{color:var(--terr);font-weight:800}.news b{display:block;font:700 18px Georgia,serif;margin-top:7px}
 .people{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.person{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:15px}.person b{font-family:Georgia,serif}.person small{display:block;color:var(--muted);margin-top:5px}
 .timeline{position:relative;border-left:2px solid var(--peach);padding-left:25px}.event{margin:0 0 25px;position:relative}.event:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--terr);left:-32px;top:6px}.event h3{margin:0;font:700 22px Georgia,serif}.event p{color:var(--muted);line-height:1.5}
 
-.tabs-container{margin:30px 0;border-bottom:2px solid var(--line);display:flex;gap:15px}
-.tab-btn{background:none;border:none;padding:12px 24px;font-size:16px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .3s}
+.tabs-container{margin:30px 0;border-bottom:2px solid var(--line);display:flex;gap:10px;flex-wrap:wrap}
+.tab-btn{background:none;border:none;padding:12px 20px;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .3s}
 .tab-btn.active{color:var(--terr);border-bottom-color:var(--terr)}
 .tab-content{display:none}
 .tab-content.active{display:block}
@@ -54,7 +54,7 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
   <nav class="nav">
    <div class="brand">MC <span>DIARIO</span></div>
    <div class="navlinks">
-    <a href="#capitulos">CAPÍTULOS</a><a href="#temporadas">TEMPORADAS</a><a href="#chismes">CHISMES</a><a href="#recetas">RECETAS</a><a href="#participantes">PARTICIPANTES</a>
+    <a href="#capitulos">CAPÍTULOS</a><a href="#temporadas">TEMPORADAS CELEBRITY</a><a href="#chismes">CHISMES</a><a href="#recetas">RECETAS</a><a href="#participantes">PARTICIPANTES</a>
    </div>
   </nav>
   <div class="hero-copy">
@@ -77,13 +77,11 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
  <div class="section-head"><div><h2>📺 El diario de cada noche</h2><p>La idea es que cada emisión tenga su propia ficha: desafío, participantes, platos, devoluciones y resultado.</p></div></div>
  <div class="grid">
   <article class="card">
-   <!-- IMAGEN CAPÍTULO 1: Cocina de competición -->
-   <div class="cardimg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/640px-Good_Food_Display_-_NCI_Visuals_Online.jpg')"></div>
+   <div class="cardimg" style="background-image:url('participantes.avif')"></div>
    <div class="cardbody"><div class="date">Lun · 28 Sep 2026</div><h3>Primeras duplas y cocina con temática astronómica</h3><p>12 celebridades cocinaron en parejas. Nazareno + Luciana y La Negra + China subieron al balcón; Edith + Paula también pasaron. El resto recibió delantal gris.</p><div class="chips"><span class="chip gold">6 duplas</span><span class="chip green">3 al balcón</span><span class="chip red">3 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/el-jurado-de-masterchef-celebrity-fue-estricto-con-el-balcon-y-los-primeros-delantales-grises-pid2567858" target="_blank">Ver resumen ↗</a></div></div>
   </article>
   <article class="card">
-   <!-- IMAGEN CAPÍTULO 2: Mariscos y cocina gourmet -->
-   <div class="cardimg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Plato_de_mariscos.jpg/640px-Plato_de_mariscos.jpg')"></div>
+   <div class="cardimg" style="background-image:url('jurado.avif')"></div>
    <div class="cardbody"><div class="date">Mar · 29 Sep 2026</div><h3>Romper el hielo: mariscos y nervios</h3><p>El segundo grupo tuvo que romper bloques de hielo para descubrir los ingredientes. Hubo langostinos, sardinas, chipirones y más.</p><div class="chips"><span class="chip gold">12 participantes</span><span class="chip green">6 al balcón</span><span class="chip red">6 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/habia-tres-platos-impresentables-el-balcon-y-los-delantales-grises-del-segundo-capitulo-de-masterchef-celebrity-pid2568017" target="_blank">Ver resumen ↗</a></div></div>
   </article>
   <article class="card" style="display:flex;align-items:center;justify-content:center;min-height:450px;background:linear-gradient(145deg,#e8ddd1,#f7eee5)">
@@ -92,71 +90,99 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
  </div>
 </section>
 
+<!-- SECCIÓN TODAS LAS TEMPORADAS CELEBRITY -->
 <section class="section" id="temporadas">
  <div class="section-head">
   <div>
-   <h2>🏆 Historial de Temporadas</h2>
-   <p>Explora los ganadores, participantes, recetas destacadas y noticias de las ediciones recientes.</p>
+   <h2>🏆 Todas las Temporadas Celebrity</h2>
+   <p>Historial completo de las ediciones de famosos de MasterChef Argentina.</p>
   </div>
  </div>
 
  <div class="tabs-container">
-  <button class="tab-btn active" onclick="openTab(event, 'temp2026')">Temporada 2026</button>
-  <button class="tab-btn" onclick="openTab(event, 'temp2023')">Temporada 2023</button>
-  <button class="tab-btn" onclick="openTab(event, 'temp2021')">Celebrity 3 (2021-22)</button>
+  <button class="tab-btn active" onclick="openTab(event, 'temp2026')">Celebrity 2026</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp2021_3')">Celebrity 3 (2021-22)</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp2021_2')">Celebrity 2 (2021)</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp2020_1')">Celebrity 1 (2020-21)</button>
  </div>
 
+ <!-- CELEBRITY 2026 -->
  <div id="temp2026" class="tab-content active">
   <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">EN TRANSCURSO</div>
-   <h3>Temporada 2026 — En competencia</h3>
+   <div class="eyebrow">TEMPORADA ACTUAL</div>
+   <h3>MasterChef Celebrity 2026 — En competencia</h3>
    <p>Conducción: Wanda Nara · Jurado: Germán Martitegui, Damián Betular y Maru Botana.</p>
   </div>
  </div>
 
- <div id="temp2023" class="tab-content">
+ <!-- CELEBRITY 3 -->
+ <div id="temp2021_3" class="tab-content">
   <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">GANADOR</div>
-   <h3>🏆 Rodolfo Vera Calderón</h3>
-   <p>Finalista: Estefanía Herlein. Edición conducida por Wanda Nara con el jurado tradicional (Donato, Betular y Martitegui).</p>
+   <div class="eyebrow">GANADORA CELEBRITY 3</div>
+   <h3>🏆 Mica Viciconte</h3>
+   <p>Subcampeón: Tomás Fonzi. Conducción: Santiago del Moro · Jurado: Donato de Santis, Damián Betular y Germán Martitegui.</p>
   </div>
   <div class="two">
    <div class="card" style="padding:20px">
-    <h3>🍴 Mejores Recetas</h3>
+    <h3>🍴 Platos de la Final</h3>
     <ul>
-     <li>Chiles en nogada de Rodolfo.</li>
-     <li>Tarta de lima (Key Lime Pie) de Estefanía.</li>
-     <li>Sopa de cebolla francesa clásica.</li>
+     <li>Mica Viciconte: Vieiras con salsa de boniato y postre de chocolate.</li>
+     <li>Tomás Fonzi: Mollejas glaseadas y milhojas de papa.</li>
     </ul>
    </div>
    <div class="card" style="padding:20px">
-    <h3>📰 Momentos e Historias</h3>
-    <p>El cruce constante pero amistoso entre Rodolfo y Estefanía, las sorpresas de Rodrigo Salcedo y el emotivo debut de Wanda Nara como conductora principal.</p>
+    <h3>⭐ Participantes Destacados</h3>
+    <p>Mery del Cerro, Peque Pareto, Denise Dumas, Joaquín Levinton, Juariu, Charlotte Caniggia y Paulo Kablan.</p>
    </div>
   </div>
  </div>
 
- <div id="temp2021" class="tab-content">
+ <!-- CELEBRITY 2 -->
+ <div id="temp2021_2" class="tab-content">
   <div class="darkcard" style="margin-bottom:20px">
-   <div class="eyebrow">GANADORA</div>
-   <h3>🏆 Mica Viciconte</h3>
-   <p>Finalista: Micaela Viciconte vs. Tomás Fonzi. Conducción: Santiago del Moro.</p>
+   <div class="eyebrow">GANADOR CELEBRITY 2</div>
+   <h3>🏆 Gastón Dalmau</h3>
+   <p>Subcampeona: Georgina Barbarossa. Conducción: Santiago del Moro.</p>
   </div>
   <div class="two">
    <div class="card" style="padding:20px">
-    <h3>🍴 Recetas de la Final</h3>
+    <h3>🍴 Menú Final de Gastón</h3>
     <ul>
-     <li>Veneras en croute de Mica Viciconte.</li>
-     <li>Mollejas glaseadas al malbec de Tomás Fonzi.</li>
-     <li>Postre de mousse de chocolate y frutos rojos.</li>
+     <li>Entrada: Carpaccio de langostinos.</li>
+     <li>Principal: Solomillo de cerdo con puré de hinojo.</li>
+     <li>Postre: Pavlova con crema de mascarpone.</li>
     </ul>
    </div>
    <div class="card" style="padding:20px">
-    <h3>📰 Participantes Destacados</h3>
-    <p>Mery del Cerro, Peque Pareto, Denise Dumas, Joaquin Levinton y Juariu dejaron momentos icónicos y platos inolvidables.</p>
+    <h3>⭐ Participantes Destacados</h3>
+    <p>Sol Pérez, Cande Vetrano, Alex Caniggia, María O'Donnell, Dani La Chepi y Juanse.</p>
    </div>
   </div>
  </div>
+
+ <!-- CELEBRITY 1 -->
+ <div id="temp2020_1" class="tab-content">
+  <div class="darkcard" style="margin-bottom:20px">
+   <div class="eyebrow">GANADORA CELEBRITY 1</div>
+   <h3>🏆 Claudia Villafañe</h3>
+   <p>Subcampeona: Analía Franchín. Conducción: Santiago del Moro.</p>
+  </div>
+  <div class="two">
+   <div class="card" style="padding:20px">
+    <h3>🍴 Menú Ganador ("La Tata")</h3>
+    <ul>
+     <li>Entrada: Mollejas salteadas con crema de ajo.</li>
+     <li>Principal: Solomillo envuelto en panceta.</li>
+     <li>Postre: Helado de banana con marquise de chocolate.</li>
+    </ul>
+   </div>
+   <div class="card" style="padding:20px">
+    <h3>⭐ Participantes Destacados</h3>
+    <p>El Polaco, Vicky Xipolitakis, Sofia Pachano, Belu Lucius, Leticia Siciliani y Fede Bal.</p>
+   </div>
+  </div>
+ </div>
+
 </section>
 
 <section class="section" id="recetas">
@@ -192,7 +218,7 @@ h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{fo
 </section>
 
 <section class="section" id="participantes">
- <div class="section-head"><div><h2>⭐ Los 24 participantes</h2><p>Estado e historial de cada famoso en la competencia.</p></div></div>
+ <div class="section-head"><div><h2>⭐ Los 24 participantes de MC Celebrity 2026</h2><p>Estado e historial de cada famoso en la competencia actual.</p></div></div>
  <div class="people">
   <div class="person"><b>China Ansa</b><small>Periodista · balcón</small></div>
   <div class="person"><b>Luck Ra</b><small>Músico · delantal gris</small></div>
