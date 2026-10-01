@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC Diario — MasterChef Celebrity Argentina</title>
+<style>
+:root{
+ --bg:#f5eee5;--paper:#fffaf4;--ink:#302923;--muted:#786d63;--terr:#b85f4c;
+ --terr2:#d98b70;--sage:#829078;--gold:#c49a55;--dark:#29231f;--line:#e4d6c7;
+ --shadow:0 18px 50px rgba(70,45,30,.12);
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{text-decoration:none;color:inherit}.wrap{width:min(1180px,91vw);margin:auto}
+.hero{min-height:620px;padding:38px 0 55px;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(40,29,22,.76),rgba(40,29,22,.32)),url("https://www.ciudad.com.ar/resizer/v2/masterchef-celebrity-2025-wanda-nara-donato-de-santis-damian-betular-german-martitegui-y-los-24-participantes-foto-telefe-NFMQJAZCYFDH5KARDLXPXOY3CA.jpg?auth=20cbc188bdced3ebf21a662c83e6b30c995d370a54772fe836e6e913606dcad7&width=1440") center/cover}
+.nav{display:flex;align-items:center;justify-content:space-between;color:white}.brand{font:700 27px Georgia,serif}.brand span{color:#f1c992}
+.navlinks{display:flex;gap:22px;font-size:13px;font-weight:700}.navlinks a:hover{color:#f1c992}
+.hero-copy{padding:145px 0 0;color:white;max-width:760px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#f3c995}
+h1{font:700 clamp(48px,7vw,86px)/.92 Georgia,serif;margin:15px 0}.hero-copy p{font-size:18px;line-height:1.6;color:#f4e9df;max-width:650px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{padding:12px 17px;border-radius:999px;background:#fff;color:var(--ink);font-weight:800;font-size:13px}.btn.alt{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.ticker{background:var(--dark);color:#fff;padding:12px 0;font-size:12px}.ticker b{color:#efb884;margin-right:9px}
+.section{padding:55px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.section h2{font:700 38px Georgia,serif;margin:0}.section-head p{color:var(--muted);max-width:600px;margin:0;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.cardimg{height:190px;background-size:cover;background-position:center}.cardbody{padding:22px}.date{color:var(--terr);font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.card h3{font:700 25px Georgia,serif;margin:9px 0}.card p{color:var(--muted);line-height:1.55;font-size:14px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#eee3d8;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.chip.green{background:#e1e8dc}.chip.red{background:#f2d9d0}.chip.gold{background:#f0e2c5}
+
+/* Estilo para la imagen del desafío actualizada */
+.feature{display:grid;grid-template-columns:1.15fr .85fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}.featureimg{min-height:390px;background:url("https://www.mitelefe.com/sites/default/files/styles/1200x675/public/2026-09/masterchef-celebrity.jpg") center/cover}.featurebody{padding:34px}.featurebody h2{font:700 42px Georgia,serif;margin:8px 0 15px}.featurebody p{color:var(--muted);line-height:1.65}.quote{border-left:4px solid var(--terr);background:#f6e9df;padding:15px 17px;border-radius:999px;font-family:Georgia,serif;font-size:17px;margin:20px 0}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.darkcard{background:var(--dark);color:white;border-radius:25px;padding:28px}.darkcard h3{font:700 29px Georgia,serif;margin-top:0}.darkcard p{color:#d9cdc2;line-height:1.6}.news{display:grid;grid-template-columns:1fr 1fr;gap:13px}.news a{background:var(--paper);padding:17px;border:1px solid var(--line);border-radius:16px}.news small{color:var(--terr);font-weight:800}.news b{display:block;font:700 18px Georgia,serif;margin-top:7px}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.person{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:15px}.person b{font-family:Georgia,serif}.person small{display:block;color:var(--muted);margin-top:5px}
+.timeline{position:relative;border-left:2px solid var(--peach);padding-left:25px}.event{margin:0 0 25px;position:relative}.event:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--terr);left:-32px;top:6px}.event h3{margin:0;font:700 22px Georgia,serif}.event p{color:var(--muted);line-height:1.5}
+
+/* Pestañas de Temporadas */
+.tabs-container{margin:30px 0;border-bottom:2px solid var(--line);display:flex;gap:15px}
+.tab-btn{background:none;border:none;padding:12px 24px;font-size:16px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:all .3s}
+.tab-btn.active{color:var(--terr);border-bottom-color:var(--terr)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+.footer{padding:50px 0 75px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media(max-width:850px){.grid,.people{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.featureimg{min-height:280px}.two{grid-template-columns:1fr}}
+@media(max-width:580px){.grid,.people,.news{grid-template-columns:1fr}.navlinks{display:none}.hero{min-height:650px}.hero-copy{padding-top:125px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="wrap">
+  <nav class="nav">
+   <div class="brand">MC <span>DIARIO</span></div>
+   <div class="navlinks">
+    <a href="#capitulos">CAPÍTULOS</a><a href="#temporadas">TEMPORADAS</a><a href="#chismes">CHISMES</a><a href="#recetas">RECETAS</a><a href="#participantes">PARTICIPANTES</a>
+   </div>
+  </nav>
+  <div class="hero-copy">
+   <div class="eyebrow">MasterChef Celebrity Argentina · 2026</div>
+   <h1>La temporada,<br>contada como un diario.</h1>
+   <p>Recetas, desafíos, devoluciones, balcón, delantal gris, noticias, momentos incómodos y todo lo que pasó alrededor de las hornallas.</p>
+   <div class="btns">
+    <a class="btn" href="#capitulos">🍽️️ Ver capítulos</a>
+    <a class="btn alt" href="#chismes">👀 Ir a los chismes</a>
+   </div>
+  </div>
+ </div>
+</header>
+
+<div class="ticker"><div class="wrap"><b>ÚLTIMO:</b> Wanda Nara volvió a poner a Maxi López en el centro de la escena al revelar un secreto de la temporada anterior · <a href="#chismes">leer →</a></div></div>
+
+<main class="wrap">
+
+<section class="section" id="capitulos">
+ <div class="section-head"><div><h2>📺 El diario de cada noche</h2><p>La idea es que cada emisión tenga su propia ficha: desafío, participantes, platos, devoluciones y resultado.</p></div></div>
+ <div class="grid">
+  <article class="card">
+   <div class="cardimg" style="background-image:url('https://www.mitelefe.com/sites/default/files/styles/1200x675/public/2026-09/masterchef-celebrity.jpg')"></div>
+   <div class="cardbody"><div class="date">Lun · 28 Sep 2026</div><h3>Primeras duplas y cocina con temática astronómica</h3><p>12 celebridades cocinaron en parejas. Nazareno + Luciana y La Negra + China subieron al balcón; Edith + Paula también pasaron. El resto recibió delantal gris.</p><div class="chips"><span class="chip gold">6 duplas</span><span class="chip green">3 al balcón</span><span class="chip red">3 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/el-jurado-de-masterchef-celebrity-fue-estricto-con-el-balcon-y-los-primeros-delantales-grises-pid2567858" target="_blank">Ver resumen ↗</a></div></div>
+  </article>
+  <article class="card">
+   <div class="cardimg" style="background-image:url('https://www.mitelefe.com/sites/default/files/styles/1200x675/public/2026-09/masterchef-celebrity-hielo.jpg')"></div>
+   <div class="cardbody"><div class="date">Mar · 29 Sep 2026</div><h3>Romper el hielo: mariscos y nervios</h3><p>El segundo grupo tuvo que romper bloques de hielo para descubrir los ingredientes. Hubo langostinos, sardinas, chipirones y más.</p><div class="chips"><span class="chip gold">12 participantes</span><span class="chip green">6 al balcón</span><span class="chip red">6 grises</span></div><div class="btns"><a class="btn" style="background:#b85f4c;color:#fff" href="https://www.mitelefe.com/masterchef-celebrity/noticias/habia-tres-platos-impresentables-el-balcon-y-los-delantales-grises-del-segundo-capitulo-de-masterchef-celebrity-pid2568017" target="_blank">Ver resumen ↗</a></div></div>
+  </article>
+  <article class="card" style="display:flex;align-items:center;justify-content:center;min-height:450px;background:linear-gradient(145deg,#e8ddd1,#f7eee5)">
+   <div class="cardbody" style="text-align:center"><div style="font-size:50px">🔥</div><div class="date">Próximo capítulo</div><h3>La noche de beneficios</h3><p>Los que llegaron al balcón competirán por medallas y beneficios.</p><span class="chip gold">Se actualiza después de la emisión</span></div>
+  </article>
+ </div>
+</section>
+
+<!-- SECCIÓN DE TEMPORADAS Y HISTORIAL -->
+<section class="section" id="temporadas">
+ <div class="section-head">
+  <div>
+   <h2>🏆 Historial de Temporadas</h2>
+   <p>Explora los ganadores, participantes, recetas destacadas y noticias de las ediciones recientes.</p>
+  </div>
+ </div>
+
+ <div class="tabs-container">
+  <button class="tab-btn active" onclick="openTab(event, 'temp2026')">Temporada 2026</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp2023')">Temporada 2023</button>
+  <button class="tab-btn" onclick="openTab(event, 'temp2021')">Celebrity 3 (2021-22)</button>
+ </div>
+
+ <!-- TEMPORADA 2026 -->
+ <div id="temp2026" class="tab-content active">
+  <div class="darkcard" style="margin-bottom:20px">
+   <div class="eyebrow">EN TRANSCURSO</div>
+   <h3>Temporada 2026 — En competencia</h3>
+   <p>Conducción: Wanda Nara · Jurado: Germán Martitegui, Damián Betular y Maru Botana.</p>
+  </div>
+ </div>
+
+ <!-- TEMPORADA 2023 -->
+ <div id="temp2023" class="tab-content">
+  <div class="darkcard" style="margin-bottom:20px">
+   <div class="eyebrow">GANADOR</div>
+   <h3>🏆 Rodolfo Vera Calderón</h3>
+   <p>Finalista: Estefanía Herlein. Edición conducida por Wanda Nara con el jurado tradicional (Donato, Betular y Martitegui).</p>
+  </div>
+  <div class="two">
+   <div class="card" style="padding:20px">
+    <h3>🍴 Mejores Recetas</h3>
+    <ul>
+     <li>Chiles en nogada de Rodolfo.</li>
+     <li>Tarta de lima (Key Lime Pie) de Estefanía.</li>
+     <li>Sopa de cebolla francesa clásica.</li>
+    </ul>
+   </div>
+   <div class="card" style="padding:20px">
+    <h3>📰 Momentos e Historias</h3>
+    <p>El cruce constante pero amistoso entre Rodolfo y Estefanía, las sorpresas de Rodrigo Salcedo y el emotivo debut de Wanda Nara como conductora principal.</p>
+   </div>
+  </div>
+ </div>
+
+ <!-- TEMPORADA 2021-2022 -->
+ <div id="temp2021" class="tab-content">
+  <div class="darkcard" style="margin-bottom:20px">
+   <div class="eyebrow">GANADORA</div>
+   <h3>🏆 Mica Viciconte</h3>
+   <p>Finalista: Micaela Viciconte vs. Tomás Fonzi. Conducción: Santiago del Moro.</p>
+  </div>
+  <div class="two">
+   <div class="card" style="padding:20px">
+    <h3>🍴 Recetas de la Final</h3>
+    <ul>
+     <li>Veneras en croute de Mica Viciconte.</li>
+     <li>Mollejas glaseadas al malbec de Tomás Fonzi.</li>
+     <li>Postre de mousse de chocolate y frutos rojos.</li>
+    </ul>
+   </div>
+   <div class="card" style="padding:20px">
+    <h3>📰 Participantes Destacados</h3>
+    <p>Mery del Cerro, Peque Pareto, Denise Dumas, Joaquin Levinton y Juariu dejaron momentos icónicos y platos inolvidables.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="recetas">
+ <div class="section-head"><div><h2>🍴 Lo que salió de las cocinas</h2><p>Una mini carta de la temporada para poder recordar qué cocinó cada famoso.</p></div></div>
+ <div class="feature">
+  <!-- Imagen actualizada a la temporada actual -->
+  <div class="featureimg"></div>
+  <div class="featurebody">
+   <div class="date">Capítulo 2 · 29 de septiembre</div>
+   <h2>Langostinos, sardinas y chipirones</h2>
+   <p>El desafío escondía los ingredientes dentro de bloques de hielo. Había tres combinaciones posibles: langostino + limón + pepino; sardinas + jengibre + jalapeño; y chipirones + apio + cebolla morada.</p>
+   <div class="quote">“La forma y la cocción ya corre por cuenta de ustedes. Sean valientes y audaces.” — Damián Betular</div>
+   <p><b>Recetas para guardar:</b> langostinos con ensalada de hinojo, pepino y naranja; arroz con langostinos; risotto con chipirones; arroz yamaní con chipirones; sardinas fritas con puré de zanahoria.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="chismes">
+ <div class="section-head"><div><h2>👀 El rincón del chisme</h2><p>Acá van los momentos que generan conversación fuera de la receta. Cuando algo sea una versión o un comentario de terceros, queda indicado como tal.</p></div></div>
+ <div class="two">
+  <div class="darkcard">
+   <div class="eyebrow">CHISME · 30 SEP</div>
+   <h3>Wanda volvió a sacar los screenshots del grupo 😭</h3>
+   <p>Durante la emisión, Wanda Nara contó que en la edición anterior Maxi López le enviaba capturas de conversaciones del grupo de WhatsApp cuando otros participantes hablaban de ella. Maxi respondió en redes con una chicana.</p>
+   <a class="btn" href="https://www.ciudad.com.ar/espectaculos/2026/09/30/maxi-lopez-mando-al-frente-a-wanda-nara-por-su-confesion-sobre-masterchef-celebrity-empezo-el-show-y-todos-los-dias-va-a/" target="_blank">Leer la noticia ↗</a>
+  </div>
+  <div class="darkcard">
+   <div class="eyebrow">MOMENTO DRAMÁTICO</div>
+   <h3>Juli Poggio terminó llorando</h3>
+   <p>En el segundo capítulo, Damián Betular le advirtió que su olla tenía mucho vapor. Juli terminó quemándose la mano y rompió en llanto; Wanda la acompañó durante el momento.</p>
+   <a class="btn" href="https://www.airedesantafe.com.ar/espectaculos/julieta-poggio-se-quemo-masterchef-celebrity-2026-y-se-largo-llorar-n671830" target="_blank">Ver la noticia ↗</a>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><h2>📰 Noticias y lo que se habla</h2><p>Una sección tipo revista para reunir las historias paralelas de la competencia.</p></div></div>
+ <div class="news">
+  <a href="https://www.mitelefe.com/masterchef-celebrity/noticias/chicanas-miedo-y-polemica-en-la-presentacion-de-los-24-participantes-de-masterchef-celebrity-pid2567845" target="_blank"><small>MI TELEFE · 28 SEP</small><b>Las chicanas, miedos y polémicas de la presentación</b></a>
+  <a href="https://www.mitelefe.com/masterchef-celebrity/noticias/wanda-nara-acorralo-a-luck-ra-por-la-joaqui-en-el-estreno-de-masterchef-celebrity-pid2567730" target="_blank"><small>MI TELEFE · 28 SEP</small><b>Wanda acorraló a Luck Ra por La Joaqui</b></a>
+  <a href="https://www.mitelefe.com/masterchef-celebrity/noticias/los-famosos-de-la-segunda-noche-se-llevan-la-peor-parte-hielo-mariscos-y-picota-pid2568013" target="_blank"><small>MI TELEFE · 29 SEP</small><b>Hielo, mariscos y picota: así fue el segundo desafío</b></a>
+  <a href="https://cordoba.mitelefe.com/espectaculos/masterchef-celebrity-arraso-en-su-estreno-y-fue-lo-mas-visto-del-dia-y-del-mes-pid2568115" target="_blank"><small>TELEFE · 30 SEP</small><b>El rating del estreno y el fenómeno en streaming</b></a>
+ </div>
+</section>
+
+<section class="section" id="participantes">
+ <div class="section-head"><div><h2>⭐ Los 24 participantes</h2><p>Podemos convertir cada nombre en una ficha con foto, platos cocinados, historial de delantales y noticias.</p></div></div>
+ <div class="people">
+  <div class="person"><b>China Ansa</b><small>Periodista · balcón</small></div>
+  <div class="person"><b>Luck Ra</b><small>Músico · delantal gris</small></div>
+  <div class="person"><b>Lizy Tagliani</b><small>Conductora · delantal gris</small></div>
+  <div class="person"><b>Marta Fort</b><small>Empresaria · delantal gris</small></div>
+  <div class="person"><b>Julieta Nair Calvo</b><small>Actriz · balcón</small></div>
+  <div class="person"><b>Morena Beltrán</b><small>Periodista · delantal gris</small></div>
+  <div class="person"><b>Pablo Migliore</b><small>Exfutbolista · delantal gris</small></div>
+  <div class="person"><b>Nazareno Casero</b><small>Actor · balcón</small></div>
+  <div class="person"><b>Pachu Peña</b><small>Humorista · delantal gris</small></div>
+  <div class="person"><b>Luciana Geuna</b><small>Periodista · balcón</small></div>
+  <div class="person"><b>Elizabeth Vernaci</b><small>Conductora · balcón</small></div>
+  <div class="person"><b>Diego Ramos</b><small>Actor · delantal gris</small></div>
+  <div class="person"><b>Alejandro Lerner</b><small>Músico · delantal gris</small></div>
+  <div class="person"><b>Seba Presta</b><small>Actor · balcón</small></div>
+  <div class="person"><b>Rocío Robles</b><small>Modelo · delantal gris</small></div>
+  <div class="person"><b>Paula Trápani</b><small>Periodista · balcón</small></div>
+  <div class="person"><b>Campi</b><small>Humorista · delantal gris</small></div>
+  <div class="person"><b>Hernán Coronel</b><small>Mala Fama · balcón</small></div>
+  <div class="person"><b>Pablo Giralt</b><small>Periodista · balcón</small></div>
+  <div class="person"><b>Karina Mazzocco</b><small>Conductora · balcón</small></div>
+  <div class="person"><b>Juli Poggio</b><small>Actriz · balcón</small></div>
+  <div class="person"><b>Grego Rossello</b><small>Comediante · delantal gris</small></div>
+  <div class="person"><b>Edith Hermida</b><small>Periodista · balcón</small></div>
+  <div class="person"><b>Mike Amigorena</b><small>Actor · delantal gris</small></div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><h2>🗓️ La temporada de un vistazo</h2><p>Una línea de tiempo para ir llenando a medida que avance el programa.</p></div></div>
+ <div class="timeline">
+  <div class="event"><h3>28 SEP · Estreno</h3><p>24 famosos ingresan a la cocina. Se presentan Wanda Nara y el jurado: Damián Betular, Germán Martitegui y Maru Botana.</p></div>
+  <div class="event"><h3>28 SEP · Primera gala</h3><p>Seis duplas cocinan con temática astronómica. Se definen los primeros balcones y delantales grises.</p></div>
+  <div class="event"><h3>29 SEP · Segunda gala</h3><p>El segundo grupo rompe bloques de hielo y cocina con mariscos. Seis van al balcón y seis al delantal gris.</p></div>
+  <div class="event"><h3>Próximo</h3><p>Beneficios y medallas para quienes están en el balcón; última chance para quienes tienen delantal gris.</p></div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><h2>🔗 Para seguirlo en vivo</h2><p>Enlaces útiles para que la página sea realmente un centro de seguimiento.</p></div></div>
+ <div class="news">
+  <a href="https://www.mitelefe.com/masterchef-celebrity/" target="_blank"><small>OFICIAL</small><b>MasterChef Celebrity · Mi Telefe ↗</b></a>
+  <a href="https://www.mitelefe.com/masterchef-celebrity/mas-masterchef" target="_blank"><small>EXTRAS</small><b>Más MasterChef: bloopers, videos y contenidos ↗</b></a>
+  <a href="https://www.telefe.com/" target="_blank"><small>TELEFE</small><b>Programación y contenidos de Telefe ↗</b></a>
+  <a href="https://www.hbomax.com/" target="_blank"><small>STREAMING</small><b>HBO Max · episodios según disponibilidad ↗</b></a>
+ </div>
+</section>
+
+</main>
+
+<footer class="footer">
+ <div class="wrap">
+  <b>MC DIARIO · MasterChef Celebrity Argentina</b>
+  <p>Proyecto de seguimiento editorial. Los resúmenes y devoluciones están redactados/parafraseados; las noticias enlazan a sus fuentes originales. Los rumores o chismes deben distinguirse de hechos confirmados.</p>
+ </div>
+</footer>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.remove("active");
+  }
+  tablinks = document.getElementsByClassName("tab-btn");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
+</html>
